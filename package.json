@@ -1,0 +1,59 @@
+{
+  "name": "openwhipmax-phone",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start -c",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web",
+    "test": "jest",
+    "build:apk": "eas build -p android --profile preview",
+    "build:apk:local": "expo prebuild --platform android",
+    "eas:configure": "eas build:configure"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/src/**/*.test.ts"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsconfig": {
+          "strict": true
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@react-native-community/slider": "5.0.1",
+    "@react-native-masked-view/masked-view": "0.3.2",
+    "@react-navigation/bottom-tabs": "^7.15.9",
+    "@react-navigation/native": "^7.2.2",
+    "expo": "~54.0.33",
+    "expo-camera": "~17.0.10",
+    "expo-haptics": "~15.0.8",
+    "expo-keep-awake": "~15.0.8",
+    "expo-manifests": "~1.0.10",
+    "expo-sensors": "~15.0.8",
+    "expo-status-bar": "~3.0.9",
+    "react": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-gesture-handler": "~2.28.0",
+    "react-native-safe-area-context": "~5.6.0",
+    "react-native-screens": "~4.16.0",
+    "react-native-zeroconf": "^0.14.0",
+    "zustand": "^5.0.12"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/react": "~19.1.0",
+    "@types/react-native-zeroconf": "^0.13.1",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.4.9",
+    "typescript": "~5.9.2"
+  },
+  "private": true
+}

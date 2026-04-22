@@ -1,0 +1,65 @@
+{
+  "expo": {
+    "name": "OpenWhipMax",
+    "slug": "openwhipmax",
+    "version": "1.0.0",
+    "orientation": "default",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "developmentClient": {
+      "silentLaunch": true
+    },
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#0d0d0d"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.openwhipmax.phone",
+      "infoPlist": {
+        "NSMotionUsageDescription": "OpenWhipMax uses the motion sensors to detect your whip-crack gesture.",
+        "NSCameraUsageDescription": "OpenWhipMax uses the camera to scan the QR pairing code from openwhipmax-agent.",
+        "NSLocalNetworkUsageDescription": "OpenWhipMax discovers openwhipmax-agent instances on your local network.",
+        "NSBonjourServices": [
+          "_openwhipmax._tcp"
+        ]
+      }
+    },
+    "android": {
+      "package": "com.openwhipmax.phone",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0d0d0d"
+      },
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.ACCESS_WIFI_STATE",
+        "android.permission.CHANGE_WIFI_MULTICAST_STATE",
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "OpenWhipMax needs the camera to scan QR codes for pairing."
+        }
+      ],
+      "expo-sensors"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "8e902290-8ff0-4b4a-bade-41b2beddd8eb"
+      }
+    },
+    "owner": "osaidalhomedys-organization"
+  }
+}

@@ -29,6 +29,7 @@
     },
     "android": {
       "package": "com.openwhipmax.phone",
+      "usesCleartextTraffic": true,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#0d0d0d"

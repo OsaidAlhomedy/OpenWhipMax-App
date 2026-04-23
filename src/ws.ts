@@ -100,15 +100,16 @@ export class WhipWSClient {
     if (!this.active || !this.config) return;
     this.setState('connecting');
     const { host, port, token } = this.config;
-    const url = `ws://${host}:${port}/whip`;
+    const url = `ws://${host}:${port}/whip?token=${encodeURIComponent(token)}`;
 
-    const ws = new WebSocket(url, [], {
-      headers: { Authorization: `Bearer ${token}` },
-    } as unknown as string[]);
+    console.log('[WS] attempt url:', url);
+
+    const ws = new WebSocket(url);
 
     this.ws = ws;
 
     ws.onopen = () => {
+      console.log('[WS] onopen — connected');
       this.backoffMs = BACKOFF_MIN_MS;
       this.setState('connected');
       this.send<HelloMsg>({ type: 'hello', device: this.config!.deviceName, protocolVersion: 1 });
@@ -123,11 +124,12 @@ export class WhipWSClient {
       } catch { /* ignore malformed */ }
     };
 
-    ws.onerror = () => {
-      // onclose fires after onerror on React Native WebSocket
+    ws.onerror = (evt) => {
+      console.log('[WS] onerror:', JSON.stringify(evt));
     };
 
-    ws.onclose = () => {
+    ws.onclose = (evt) => {
+      console.log('[WS] onclose code:', evt.code, 'reason:', evt.reason, 'wasClean:', evt.wasClean);
       this.ws = null;
       this.stopPing();
       if (this.active) {
